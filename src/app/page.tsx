@@ -1,21 +1,21 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Page() {
   return (
     <>
-      <main className="grow h-screen max-h-screen px-20 py-12 bg-gray-100">
+      <main className="h-screen max-h-screen grow bg-gray-100 px-20 py-12">
         <section className="h-full">
-          <div className="text-5xl font-extralight text-black mb-20">
+          <div className="mb-20 text-5xl font-extralight text-black">
             <span>Home Office</span>
             <p>Essentials.</p>
           </div>
           <div className="mb-32 flex gap-4">
-            <div className="bg-gray-200 p-4 flex flex-col gap-4 w-fit">
+            <div className="flex w-fit flex-col gap-4 bg-gray-200 p-4">
               <div className="flex items-center justify-between">
-                <span className="text-sm bg-orange-100/60 px-4 py-1 rounded-full">
+                <span className="rounded-full bg-orange-100/60 px-4 py-1 text-sm">
                   Some badge
                 </span>
-                <button className="text-sm bg-white/60 px-4 py-1 rounded-full">
+                <button className="rounded-full bg-white/60 px-4 py-1 text-sm">
                   Customize
                 </button>
               </div>
@@ -25,27 +25,27 @@ export default function Page() {
                 width={400}
                 height={400}
               />
-              <div className="bg-white p-3 gap-3 flex items-center">
+              <div className="flex items-center gap-3 bg-white p-3">
                 <div>
                   <p className="font-medium">Standing Desk</p>
                   <p className="text-sm text-gray-400">From $990.00</p>
                 </div>
-                <div className="w-px self-stretch bg-gray-400 ml-auto" />
+                <div className="ml-auto w-px self-stretch bg-gray-400" />
                 <Image
                   src="/shopping-cart.svg"
                   alt="Shopping cart icon"
-                  className="mr-2 ml-1"
+                  className="ml-1 mr-2"
                   width={24}
                   height={24}
                 />
               </div>
             </div>
-            <div className="bg-gray-200 p-4 flex flex-col gap-4 w-fit">
+            <div className="flex w-fit flex-col gap-4 bg-gray-200 p-4">
               <div className="flex items-center justify-between">
-                <span className="text-sm bg-orange-100/60 px-4 py-1 rounded-full">
+                <span className="rounded-full bg-orange-100/60 px-4 py-1 text-sm">
                   Some badge
                 </span>
-                <button className="text-sm bg-white/60 px-4 py-1 rounded-full">
+                <button className="rounded-full bg-white/60 px-4 py-1 text-sm">
                   Customize
                 </button>
               </div>
@@ -55,27 +55,27 @@ export default function Page() {
                 width={400}
                 height={400}
               />
-              <div className="bg-white p-3 gap-3 flex items-center">
+              <div className="flex items-center gap-3 bg-white p-3">
                 <div>
                   <p className="font-medium">Standing Desk</p>
                   <p className="text-sm text-gray-400">From $990.00</p>
                 </div>
-                <div className="w-px self-stretch bg-gray-400 ml-auto" />
+                <div className="ml-auto w-px self-stretch bg-gray-400" />
                 <Image
                   src="/shopping-cart.svg"
                   alt="Shopping cart icon"
-                  className="mr-2 ml-1"
+                  className="ml-1 mr-2"
                   width={24}
                   height={24}
                 />
               </div>
             </div>
-            <div className="bg-gray-200 p-4 flex flex-col gap-4 w-fit">
+            <div className="flex w-fit flex-col gap-4 bg-gray-200 p-4">
               <div className="flex items-center justify-between">
-                <span className="text-sm bg-orange-100/60 px-4 py-1 rounded-full">
+                <span className="rounded-full bg-orange-100/60 px-4 py-1 text-sm">
                   Some badge
                 </span>
-                <button className="text-sm bg-white/60 px-4 py-1 rounded-full">
+                <button className="rounded-full bg-white/60 px-4 py-1 text-sm">
                   Customize
                 </button>
               </div>
@@ -85,24 +85,24 @@ export default function Page() {
                 width={400}
                 height={400}
               />
-              <div className="bg-white p-3 gap-3 flex items-center">
+              <div className="flex items-center gap-3 bg-white p-3">
                 <div>
                   <p className="font-medium">Standing Desk</p>
                   <p className="text-sm text-gray-400">From $990.00</p>
                 </div>
-                <div className="w-px self-stretch bg-gray-400 ml-auto" />
+                <div className="ml-auto w-px self-stretch bg-gray-400" />
                 <Image
                   src="/shopping-cart.svg"
                   alt="Shopping cart icon"
-                  className="mr-2 ml-1"
+                  className="ml-1 mr-2"
                   width={24}
                   height={24}
                 />
               </div>
             </div>
           </div>
-          <p className="text-4xl font-light mb-4">See more produce</p>
-          <button className="bg-gray-200 px-8 py-2 rounded-full">
+          <p className="mb-4 text-4xl font-light">See more produce</p>
+          <button className="rounded-full bg-gray-200 px-8 py-2">
             <Image
               src="/arrow-right.svg"
               alt="Arrow right icon"

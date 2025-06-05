@@ -1,40 +1,37 @@
+import Image from 'next/image';
+
 type CardProps = {
   imageUrl: string;
   title: string;
   price: string;
-}
+};
 
-export const Card = ({ imageUrl, title, price }: CardProps ) => {
+export const Card = ({ imageUrl, title, price }: CardProps) => {
   return (
-    <div className="bg-gray-200 p-4 flex flex-col gap-4 w-fit">
+    <div className="flex w-fit flex-col gap-4 bg-gray-200 p-4">
       <div className="flex items-center justify-between">
-        <span className="text-sm bg-orange-100/60 px-4 py-1 rounded-full">
+        <span className="rounded-full bg-orange-100/60 px-4 py-1 text-sm">
           Select color (coming soon!)
         </span>
-        <button className="text-sm bg-white/60 px-4 py-1 rounded-full">
+        <button className="rounded-full bg-white/60 px-4 py-1 text-sm">
           Customize (coming soon!)
         </button>
       </div>
-      <img
-        src={imageUrl}
-        alt={title}
-        width={400}
-        height={400}
-      />
-      <div className="bg-white p-3 gap-3 flex items-center">
+      <Image src={imageUrl} alt={title} width={400} height={400} />
+      <div className="flex items-center gap-3 bg-white p-3">
         <div>
           <p className="font-medium">{title}</p>
           <p className="text-sm text-gray-400">{`From ${price}`}</p>
         </div>
-        <div className="w-px self-stretch bg-gray-400 ml-auto" />
-        <img
+        <div className="ml-auto w-px self-stretch bg-gray-400" />
+        <Image
           src="/shopping-cart.svg"
           alt="Shopping cart icon"
-          className="mr-2 ml-1"
+          className="ml-1 mr-2"
           width={24}
           height={24}
         />
       </div>
     </div>
   );
-}
+};

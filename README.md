@@ -1,4 +1,4 @@
-# Infinte Scroll Challenge
+# Infinite Scroll Challenge
 
 You need to build an infinite scroll page based on the styles below.
 
