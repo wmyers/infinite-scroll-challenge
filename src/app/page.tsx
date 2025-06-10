@@ -2,7 +2,7 @@ import { ProductList } from './ui/ProductList';
 import { getProducts } from './lib/actions/products';
 
 export default async function Page() {
-  const initialProducts = await getProducts();
+  const { products, error } = await getProducts();
 
   return (
     <>
@@ -13,17 +13,10 @@ export default async function Page() {
             <p>Essentials.</p>
           </div>
 
-          <ProductList initialProducts={initialProducts} />
-
-          {/* <p className="mb-4 text-4xl font-light">See more produce</p>
-          <button className="rounded-full bg-gray-200 px-8 py-2">
-            <Image
-              src="/arrow-right.svg"
-              alt="Arrow right icon"
-              width={24}
-              height={24}
-            />
-          </button> */}
+          {products && <ProductList initialProducts={products} />}
+          {error && (
+            <p className="text-red-500">Error fetching products: {error}</p>
+          )}
         </section>
       </main>
     </>

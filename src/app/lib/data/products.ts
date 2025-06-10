@@ -18,6 +18,7 @@ export async function fetchProducts(
     // we can do additional error logging here if required
     if (!isOK) {
       console.error(`ERROR fetchProducts ${status} `);
+      throw new Error(`${status}`);
     }
     return data.products;
   } catch (error) {

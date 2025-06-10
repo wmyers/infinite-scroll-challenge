@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 import { ProductCard } from './ProductCard';
 import type { Product } from '@/app/lib/schemas/product.schema';
 import { useInfiniteScroll } from './hooks/useInfiniteScroll';
-import { fetchProducts } from '../lib/fetchers/products';
+import { fetchProducts } from '../lib/data/products';
 
 export const ProductList = ({
   initialProducts,
@@ -29,7 +29,8 @@ export const ProductList = ({
     },
     [],
   );
-  const [observerTargetRef] = useInfiniteScroll(productsFetcher);
+  const [observerTargetRef] =
+    useInfiniteScroll<HTMLDivElement>(productsFetcher);
 
   return (
     <>

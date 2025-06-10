@@ -4,10 +4,10 @@ interface Fetcher {
   (page: number, abortSignal: AbortSignal): Promise<void>;
 }
 
-export function useInfiniteScroll(
+export function useInfiniteScroll<T extends Element>(
   fetcher: Fetcher,
   startPage = 1,
-): [RefObject<HTMLDivElement | null>, number] {
+): [RefObject<T | null>, number] {
   const [nextPage, setNextPage] = useState(startPage);
   const observerTargetRef = useRef(null);
 
@@ -38,7 +38,7 @@ export function useInfiniteScroll(
       },
       { threshold: 1 },
     );
-    let observerTargetRefCurrent: HTMLDivElement;
+    let observerTargetRefCurrent: T;
     if (observerTargetRef.current) {
       observerTargetRefCurrent = observerTargetRef.current;
       observer.observe(observerTargetRefCurrent);
