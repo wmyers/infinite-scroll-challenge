@@ -3,12 +3,7 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   output: 'standalone',
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'png.pngtree.com',
-      },
-    ],
+    remotePatterns: [new URL('https://cdn.dummyjson.com/**')],
   },
   compress: false,
 };
