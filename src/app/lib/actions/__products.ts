@@ -27,6 +27,10 @@ type GetProductsResponse = {
  *  - Saying all this it might be better to stream the initial data of the Server
  *    Component into the client side anyway (using <Suspense>)
  *
+ *  see also:
+ *  - https://www.robinwieruch.de/next-server-actions-fetch-data/
+ *  - https://nextjs.org/docs/pages/building-your-application/data-fetching/client-side
+ *
  */
 
 export async function getProducts(): Promise<GetProductsResponse> {

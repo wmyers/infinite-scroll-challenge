@@ -7,19 +7,35 @@ interface Fetcher {
 export function useInfiniteScroll<T extends Element>(
   fetcher: Fetcher,
   startPage = 1,
-): [RefObject<T | null>, number] {
+): [RefObject<T | null>, number, boolean, boolean] {
   const [nextPage, setNextPage] = useState(startPage);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const observerTargetRef = useRef(null);
 
   // need separate effect hook for fetcher because of https://stackoverflow.com/a/74479580/4097475
-  // and also because it is cleaner
+
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    // NB first page is fetched on the server
-    if (nextPage && nextPage !== startPage) {
-      fetcher(nextPage, signal);
-    }
+
+    const fetchData = async () => {
+      // NB first page is fetched on the server
+      if (nextPage && nextPage !== startPage) {
+        try {
+          setIsLoading(true);
+          setIsError(false);
+          await fetcher(nextPage, signal);
+          setIsLoading(false);
+        } catch (error) {
+          console.error('Error in infinite scroll fetch:', error);
+          setIsError(true);
+        }
+      }
+    };
+
+    void fetchData();
+
     return () => {
       // Abort the request when the component unmounts or when a dependency changes
       controller.abort();
@@ -50,5 +66,5 @@ export function useInfiniteScroll<T extends Element>(
     };
   }, [fetcher, observerTargetRef]);
 
-  return [observerTargetRef, nextPage];
+  return [observerTargetRef, nextPage, isLoading, isError];
 }

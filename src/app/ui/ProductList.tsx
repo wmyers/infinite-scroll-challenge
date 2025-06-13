@@ -13,23 +13,15 @@ export const ProductList = ({
 }) => {
   const [products, setProducts] = useState<Product[]>(initialProducts);
   // memoize this callback as it is passed into the useInfiniteScroll hook and used as a dependency
+  // NB any error with this function will be caught by the useInfiniteScroll hook
   const productsFetcher = useCallback(
     async (page: number, abortSignal: AbortSignal) => {
-      try {
-        // see also:
-        // - https://www.robinwieruch.de/next-server-actions-fetch-data/
-        // - https://nextjs.org/docs/pages/building-your-application/data-fetching/client-side
-
-        // TODO use react-query to get loading and error states
-        const newProducts = await fetchProducts(page, abortSignal);
-        setProducts((prev) => [...prev, ...newProducts]);
-      } catch (err) {
-        console.error('Error fetching products:', err);
-      }
+      const newProducts = await fetchProducts(page, abortSignal);
+      setProducts((prev) => [...prev, ...newProducts]);
     },
     [],
   );
-  const [observerTargetRef] =
+  const [observerTargetRef, _, isLoading, isError] =
     useInfiniteScroll<HTMLDivElement>(productsFetcher);
 
   return (
@@ -40,8 +32,8 @@ export const ProductList = ({
         ))}
       </div>
       <div ref={observerTargetRef} className="h-1" />
-      {/* {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>} */}
+      {isLoading && <p>Loading...</p>}
+      {isError && <p>Error: Uh oh</p>}
     </>
   );
 };
