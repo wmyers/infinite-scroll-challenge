@@ -39,9 +39,7 @@ export const ProductList = ({
           <ProductCard product={product} key={product.id} />
         ))}
       </div>
-      <div ref={observerTargetRef}>
-        <span>ref</span>
-      </div>
+      <div ref={observerTargetRef} className="h-1" />
       {/* {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>} */}
     </>

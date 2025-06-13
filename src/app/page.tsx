@@ -1,9 +1,9 @@
 import { ProductList } from './ui/ProductList';
-import { getProducts } from './lib/actions/products';
+import { Suspense } from 'react';
+import { fetchProducts } from './lib/data/products';
+import { ErrorBoundary } from './ui/ErrorBoundary';
 
 export default async function Page() {
-  const { products, error } = await getProducts();
-
   return (
     <>
       <main className="h-screen max-h-screen grow bg-gray-100 px-20 py-12">
@@ -13,10 +13,11 @@ export default async function Page() {
             <p>Essentials.</p>
           </div>
 
-          {products && <ProductList initialProducts={products} />}
-          {error && (
-            <p className="text-red-500">Error fetching products: {error}</p>
-          )}
+          <ErrorBoundary fallback={<div>Error loading products</div>}>
+            <Suspense fallback={<div>Loading...</div>}>
+              <ProductList initialProducts={await fetchProducts()} />
+            </Suspense>
+          </ErrorBoundary>
         </section>
       </main>
     </>

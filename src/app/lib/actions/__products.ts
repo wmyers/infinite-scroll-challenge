@@ -1,5 +1,7 @@
 'use server';
 
+// * This Server Function is unnecessary - keeping for reference purposes only
+
 import type { Product } from '@/app/lib/schemas/product.schema';
 import { fetchProducts } from '../data/products';
 
@@ -14,8 +16,6 @@ type GetProductsResponse = {
  * error for optional client side fetch properties, which occurs if the fetch
  * command is 'in' the Server Function.
  *
- * Technically this Server Function could be considered unnecessary because it
- * is only called by a Server Component (page.tsx).
  *
  * A few other thoughts:
  *  - NextJS doesn't recommend Server Functions (Actions) for fetching data
