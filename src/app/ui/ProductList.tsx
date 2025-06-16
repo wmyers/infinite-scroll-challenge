@@ -21,6 +21,7 @@ export const ProductList = ({
     },
     [],
   );
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [observerTargetRef, _, isLoading, isError] =
     useInfiniteScroll<HTMLDivElement>(productsFetcher);
 

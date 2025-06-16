@@ -10,7 +10,10 @@
     "lint": "next lint",
     "typecheck": "tsc",
     "format": "prettier --check './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "next": "^15.1.7",
@@ -20,6 +23,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
     "@types/node": "22.13.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
@@ -30,10 +36,13 @@
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "jest": "^30.0.0",
+    "jest-environment-jsdom": "^30.0.0",
     "postcss": "8.4.47",
     "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "3.4.12",
+    "ts-node": "^10.9.2",
     "typescript": "5.5.3"
   },
   "engines": {

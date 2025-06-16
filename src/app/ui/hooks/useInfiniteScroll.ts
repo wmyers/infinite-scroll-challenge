@@ -54,15 +54,20 @@ export function useInfiniteScroll<T extends Element>(
       },
       { threshold: 1 },
     );
-    let observerTargetRefCurrent: T;
-    if (observerTargetRef.current) {
-      observerTargetRefCurrent = observerTargetRef.current;
-      observer.observe(observerTargetRefCurrent);
+
+    // Store the current ref in a ref to persist it for cleanup
+    const currentRef = { current: observerTargetRef.current };
+
+    if (currentRef.current) {
+      observer.observe(currentRef.current);
     }
+
     return () => {
-      if (observerTargetRefCurrent) {
-        observer.unobserve(observerTargetRefCurrent);
+      if (currentRef.current) {
+        observer.unobserve(currentRef.current);
       }
+      observer.disconnect();
+      currentRef.current = null; // Explicitly clear the reference
     };
   }, [fetcher, observerTargetRef]);
 
