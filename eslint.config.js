@@ -16,8 +16,8 @@ const compat = new FlatCompat({
 const config = [
   ...compat.extends(
     'eslint:recommended',
-    'next/core-web-vitals',
-    'next/typescript',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ),
   { ignores: ['dist'] },
@@ -35,6 +35,7 @@ const config = [
         'warn',
         { allowConstantExport: true },
       ],
+      'react/react-in-jsx-scope': 'off',
     },
   },
 ];

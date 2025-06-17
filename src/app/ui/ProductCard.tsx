@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Product } from '../lib/schemas/product.schema';
 import { formatCurrency } from '../lib/utils/formatCurrency';
 
@@ -8,7 +7,7 @@ export const ProductCard = ({
   product: Product;
 }) => {
   return (
-    <div className="flex h-[300px] w-[300px] flex-col gap-4 bg-gray-200 p-4">
+    <div className="flex h-[300px] w-[300px] flex-col gap-3 bg-gray-200 p-4">
       <div className="flex items-center justify-between">
         <span className="rounded-full bg-orange-100/60 px-4 py-1 text-sm">
           Select color
@@ -18,15 +17,19 @@ export const ProductCard = ({
         </button>
       </div>
       <div className="relative w-full flex-1">
-        <Image
-          src={thumbnail}
-          alt={title}
-          fill
-          sizes="300px"
-          className="object-contain"
-        />
+        <div className="absolute inset-0 bg-gray-200" />
+        <div className="relative mx-auto h-0 w-[160px] pb-[160px]">
+          <img
+            src={thumbnail}
+            alt={title}
+            className="absolute inset-0 h-full w-full object-contain"
+            loading="lazy"
+            width={160}
+            height={160}
+          />
+        </div>
       </div>
-      <div className="flex items-center gap-3 bg-white p-3">
+      <div className="flex items-center gap-3 bg-white px-[10px] py-2">
         <div>
           <div className="group relative">
             <p className="max-w-[180px] truncate text-sm font-medium">
@@ -39,12 +42,10 @@ export const ProductCard = ({
           <p className="text-sm text-gray-400">{`From ${formatCurrency(price)}`}</p>
         </div>
         <div className="ml-auto w-px self-stretch bg-gray-400" />
-        <Image
+        <img
           src="/shopping-cart.svg"
           alt="Shopping cart icon"
-          className="ml-1 mr-2"
-          width={24}
-          height={24}
+          className="ml-1 mr-2 h-6 w-6"
         />
       </div>
     </div>

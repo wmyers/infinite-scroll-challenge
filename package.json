@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "typecheck": "tsc",
     "format": "prettier --check './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
@@ -16,7 +15,6 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "next": "^15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "zod": "^3.25.55"
@@ -29,11 +27,13 @@
     "@types/node": "22.13.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "10.4.20",
     "eslint": "^9.9.0",
-    "eslint-config-next": "15.1.7",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "jest": "^30.0.0",
@@ -42,8 +42,10 @@
     "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "3.4.12",
+    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
-    "typescript": "5.5.3"
+    "typescript": "5.5.3",
+    "vite": "^5.1.4"
   },
   "engines": {
     "node": ">=22"

@@ -1,5 +1,3 @@
-'use client';
-
 import { useCallback, useState } from 'react';
 import { ProductCard } from './ProductCard';
 import type { Product } from '@/app/lib/schemas/product.schema';

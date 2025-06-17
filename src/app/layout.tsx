@@ -1,24 +1,19 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 
-// NB https://github.com/vercel/next.js/discussions/58693#discussioncomment-8024154
-const inter = Inter({ subsets: ['latin'] });
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const metadata: Metadata = {
-  title: 'Infinite Scroll Challenge',
-  description: 'Infinite Scroll Challenge',
-};
-
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
