@@ -1,16 +1,17 @@
 import { renderHook, act } from '@testing-library/react';
+import { describe, it, beforeEach, vi, expect } from 'vitest';
 import { useInfiniteScroll } from './useInfiniteScroll';
 
 describe('useInfiniteScroll', () => {
   // Mock IntersectionObserver
-  const mockIntersectionObserver = jest.fn();
-  const mockDisconnect = jest.fn();
-  const mockObserve = jest.fn();
-  const mockUnobserve = jest.fn();
+  const mockIntersectionObserver = vi.fn();
+  const mockDisconnect = vi.fn();
+  const mockObserve = vi.fn();
+  const mockUnobserve = vi.fn();
 
   beforeEach(() => {
     // Reset all mocks before each test
-    jest.clearAllMocks();
+    vi.clearAllMocks();
 
     // Setup IntersectionObserver mock
     mockIntersectionObserver.mockImplementation(() => {
@@ -30,7 +31,7 @@ describe('useInfiniteScroll', () => {
   });
 
   it('should initialize with correct default values', () => {
-    const mockFetcher = jest.fn();
+    const mockFetcher = vi.fn();
     const { result } = renderHook(() => useInfiniteScroll(mockFetcher));
 
     expect(result.current[0].current).toBeNull(); // observerTargetRef
@@ -40,14 +41,14 @@ describe('useInfiniteScroll', () => {
   });
 
   it('should not fetch on initial render', () => {
-    const mockFetcher = jest.fn();
+    const mockFetcher = vi.fn();
     renderHook(() => useInfiniteScroll(mockFetcher));
 
     expect(mockFetcher).not.toHaveBeenCalled();
   });
 
   it('should fetch when intersection is observed', async () => {
-    const mockFetcher = jest.fn().mockResolvedValue(undefined);
+    const mockFetcher = vi.fn().mockResolvedValue(undefined);
     const { result } = renderHook(() => useInfiniteScroll(mockFetcher));
 
     // Simulate intersection
@@ -64,9 +65,9 @@ describe('useInfiniteScroll', () => {
 
   it('should handle fetch errors', async () => {
     const mockError = new Error('Fetch failed');
-    const mockFetcher = jest.fn().mockRejectedValue(mockError);
+    const mockFetcher = vi.fn().mockRejectedValue(mockError);
     const originalConsoleError = console.error;
-    console.error = jest.fn();
+    console.error = vi.fn();
 
     const { result } = renderHook(() => useInfiniteScroll(mockFetcher));
 
@@ -89,7 +90,7 @@ describe('useInfiniteScroll', () => {
   });
 
   it('should handle loading state correctly', async () => {
-    const mockFetcher = jest
+    const mockFetcher = vi
       .fn()
       .mockImplementation(
         () => new Promise((resolve) => setTimeout(resolve, 100)),
@@ -119,8 +120,8 @@ describe('useInfiniteScroll', () => {
   });
 
   it('should abort previous fetch when new fetch starts', async () => {
-    const mockAbort = jest.fn();
-    const mockFetcher = jest.fn().mockImplementation((_, signal) => {
+    const mockAbort = vi.fn();
+    const mockFetcher = vi.fn().mockImplementation((_, signal) => {
       signal.addEventListener('abort', mockAbort);
       return new Promise((resolve) => setTimeout(resolve, 100));
     });
@@ -144,7 +145,7 @@ describe('useInfiniteScroll', () => {
   });
 
   it('should cleanup observer on unmount', () => {
-    const mockFetcher = jest.fn();
+    const mockFetcher = vi.fn();
     const { result, unmount } = renderHook(() =>
       useInfiniteScroll(mockFetcher),
     );

@@ -3,3 +3,27 @@ description:
 globs:
 alwaysApply: false
 ---
+# Important Files
+
+## Configuration Files
+- `package.json` - Project dependencies and scripts
+- `vite.config.ts` - Vite configuration
+- `tsconfig.json` - TypeScript configuration
+- `jest.config.ts` - Jest test configuration
+- `tailwind.config.js` - Tailwind CSS configuration
+- `postcss.config.js` - PostCSS configuration
+- `eslint.config.js` - ESLint configuration
+
+## Source Files
+- `src/main.tsx` - Application entry point
+- `src/app/page.tsx` - Main page component
+- `src/app/layout.tsx` - Root layout component
+- `src/app/ui/ProductCard.tsx` - Product card component
+- `src/app/ui/ProductList.tsx` - Product list component
+- `src/app/ui/hooks/useInfiniteScroll.ts` - Infinite scroll hook
+- `src/app/lib/data/products.ts` - Product data handling
+
+## Test Files
+- `src/app/ui/hooks/useInfiniteScroll.test.tsx` - Infinite scroll hook tests
+
+Note: If new files are added to the project, they should be added to this list.

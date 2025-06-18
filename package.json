@@ -10,9 +10,9 @@
     "typecheck": "tsc",
     "format": "prettier --check './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -23,12 +23,14 @@
     "@eslint/js": "^9.9.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
-    "@types/jest": "^30.0.0",
+    "@testing-library/user-event": "^14.0.0",
     "@types/node": "22.13.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
     "autoprefixer": "10.4.20",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^10.0.1",
@@ -36,16 +38,15 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
-    "jest": "^30.0.0",
     "jest-environment-jsdom": "^30.0.0",
     "postcss": "8.4.47",
     "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "3.4.12",
-    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "typescript": "5.5.3",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=22"
